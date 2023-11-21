@@ -65,5 +65,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          releaseName: 'Template App GUI v__VERSION__' # Need change
           tagName: ${{ github.ref_name }} # This only works if your workflow triggers on new tags.
           prerelease: false

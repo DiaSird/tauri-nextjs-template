@@ -40,9 +40,18 @@ Example
 
 - Cargo.toml
 - `.github/workflows/release-cli.yaml`(row200) `App Cli`
+- `.github/workflows/release-gui.yaml` `Template App GUI``
 - package.json
 - `src-tauri/tauri.conf.json`
 - Rename app_core, app_cli(then rename Cargo.toml too)
+
+## How to release?
+
+```shell
+# git tag <tag version> -m <message> -s <- when use signed commit
+git tag "0.1.0" -m "new release"
+git push --tags # Then fire release event
+```
 
 ## License
 

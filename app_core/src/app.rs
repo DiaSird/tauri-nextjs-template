@@ -13,3 +13,19 @@ pub fn add(num1: u64, num2: u64) -> Result<u64> {
         num => return Err(CoreError::UnexpectedNumber(num)),
     })
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use pretty_assertions::assert_eq;
+
+    #[test]
+    fn should_add() {
+        assert_eq!(add(1, 1), Ok(2));
+    }
+
+    #[test]
+    fn should_err() {
+        assert!(add(11, 1).is_err());
+    }
+}

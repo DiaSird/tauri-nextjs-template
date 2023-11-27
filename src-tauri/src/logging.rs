@@ -142,7 +142,7 @@ mod tests {
         let log_dir = temp_dir::TempDir::new()?;
         let log_dir = log_dir.path();
         for _ in 0..5 {
-            create_rotate_log(log_dir, "g_dar2oar.log", 3)?;
+            create_rotate_log(log_dir, "app.log", 3)?;
             std::thread::sleep(std::time::Duration::from_secs(1));
         }
 

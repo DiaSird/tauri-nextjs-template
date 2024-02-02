@@ -7,6 +7,7 @@ pub fn run_tauri() -> anyhow::Result<()> {
         .invoke_handler(tauri::generate_handler![
             crate::cmd::change_log_level,
             crate::cmd::add_num,
+            crate::cmd::input_command,
         ])
         .run(tauri::generate_context!())
         .context("Failed to execute tauri")

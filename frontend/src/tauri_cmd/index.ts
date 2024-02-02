@@ -2,6 +2,7 @@ import { invoke } from '@tauri-apps/api';
 import { open } from '@tauri-apps/api/dialog';
 import { appLogDir } from '@tauri-apps/api/path';
 import { open as openShell } from '@tauri-apps/api/shell';
+import { toast} from "react-hot-toast"
 
 import { selectLogLevel } from '@/utils/selector';
 
@@ -66,4 +67,11 @@ export async function openPath(path: string, setPath: (path: string) => void, is
 export async function openLogFile() {
   const logDir = await appLogDir();
   await openShell(`${logDir}${tauriConfig.package.productName}.log`);
+}
+
+/** command: String, args: Vec<String> */
+export async function command(command: string, args: string[]) {
+  console.log(`command: ${command}, args: ${args}`);
+  const result =  await invoke<string>('input_command', { command, args: args });
+  toast.success(result);
 }
